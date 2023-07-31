@@ -2316,10 +2316,10 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                 if($tlsStatus == "xtls" && $netType == "tcp") $psting .= "&flow=xtls-rprx-direct";
                 if($tlsStatus=="reality") $psting .= "&fp=$fp&pbk=$pbk&sni=$sni" . ($flow != ""?"&flow=$flow":"") . "&sid=$sid&spx=$spiderX";
                 if($rahgozar == true) $psting .= "&path=" . urlencode("$path?ed=2048") . "&encryption=none&host=$host";
-                $outputlink = "$protocol://$uniqid@$server_ip:" . ($rahgozar == true?"$port":$port) . "?type=$netType#$remark";
+                $outputlink = "$protocol://$uniqid@$server_ip:" . ($rahgozar == true?"$port":$port) . "?type=tcp&security=none#$remark";
                 if($netType == 'grpc'){
                     if($tlsStatus == 'tls'){
-                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
+                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&serviceName=$serviceName#$remark";
                     }else{
                         $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
                     }
@@ -2332,13 +2332,13 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                 if($header_type == 'http') $psting .= "&path=/&host=$host";
                 if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
                 if(strlen($sni) > 1) $psting .= "&sni=$sni";
-                $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType#$remark";
+                $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none#$remark";
                 
                 if($netType == 'grpc'){
                     if($tlsStatus == 'tls'){
-                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
+                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&serviceName=$serviceName#$remark";
                     }else{
-                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
+                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&serviceName=$serviceName#$remark";
                     }
     
                 }
@@ -2403,18 +2403,18 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                     if($tlsStatus=="xtls") $psting .= "&flow=xtls-rprx-direct";
                     if($tlsStatus=="reality") $psting .= "&fp=$fp&pbk=$pbk&sni=$sni" . ($flow != ""?"&flow=$flow":"") . "&sid=$sid&spx=$spiderX";
                     if($header_type == "http") $psting .= "&path=/&host=$host";
-                    $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType#$remark";
+                    $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none#$remark";
                 }elseif($netType == 'ws'){
-                    if($rahgozar == true)$outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&path=" . urlencode("$path?ed=2048") . "&encryption=none&host=$server_ip{$psting}#$remark";
-                    else $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&path=/&host=$host{$psting}#$remark";
+                    if($rahgozar == true)$outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&path=" . urlencode("$path?ed=2048") . "&encryption=none&host=$server_ip{$psting}#$remark";
+                    else $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&path=/&host=$host{$psting}#$remark";
                 }
                 elseif($netType == 'kcp')
-                    $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&headerType=$kcpType&seed=$kcpSeed#$remark";
+                    $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&headerType=$kcpType&seed=$kcpSeed#$remark";
                 elseif($netType == 'grpc'){
                     if($tlsStatus == 'tls'){
-                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
+                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&serviceName=$serviceName#$remark";
                     }else{
-                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
+                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&serviceName=$serviceName#$remark";
                     }
                 }
             }elseif($protocol == 'trojan'){                
@@ -2422,13 +2422,13 @@ function getConnectionLink($server_id, $uniqid, $protocol, $remark, $port, $netT
                 if($header_type == 'http') $psting .= "&path=/&host=$host";
                 if($netType == 'tcp' and $header_type == 'http') $psting .= '&headerType=http';
                 if(strlen($sni) > 1) $psting .= "&sni=$sni";
-                $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType#$remark";
+                $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none#$remark";
                 
                 if($netType == 'grpc'){
                     if($tlsStatus == 'tls'){
-                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
+                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&serviceName=$serviceName#$remark";
                     }else{
-                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=$netType&serviceName=$serviceName#$remark";
+                        $outputlink = "$protocol://$uniqid@$server_ip:$port?type=tcp&security=none&serviceName=$serviceName#$remark";
                     }
     
                 }
